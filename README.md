@@ -1,8 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books
 
-> Awesome Books
 > It is a simple data management single page application that store data in local storage. User can perform simple manipulation like adding and removing data. then the updated data get displayed on top of the page.
 
 ## Built With
