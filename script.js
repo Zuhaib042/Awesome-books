@@ -17,12 +17,15 @@ const booksArr = [
   },
 ];
 function displayBooks() {
+  let counter = 0;
   booksArr.forEach((book) => {
+    
     booksSection.innerHTML += `<div class="book-detail" id="book-detail">
         <p class="book-title">${book.title}</p>
         <p class="book-author">${book.author}</p>
-        <button type="button" onclick=${removeBook()} class="remove-btn" id="remove-btn">Remove</button>
+        <button type="button" onclick=" removeBook(${counter})" class="remove-btn" id="remove-btn">Remove</button>
     </div>`;
+    counter += 1;
   });
 }
 displayBooks();
@@ -35,10 +38,10 @@ function addBook() {
   }
 }
 
-function removeBook() {
-  booksArr.filter((book, index) => {
-    console.log(book, index);
-  });
+function removeBook(index) {
+ booksArr.splice(index,1);
+ booksSection.innerHTML = '';
+   displayBooks();
 }
 
 addBtn.addEventListener('click', () => {
