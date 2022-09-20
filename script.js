@@ -24,9 +24,12 @@ class Books {
 
     booksList.forEach((book, i) => {
       booksSection.innerHTML += `<div class="book-detail" id="book-detail">
-          <p class="book-title">${book.title}</p>
-          <p class="book-author">${book.author}</p>
-          <button type="button" onclick="addMethod.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button><hr>
+      <div class="one-book">
+          <span class="book-title">"${book.title}"</span>
+          <span>by</span>
+          <span class="book-author">${book.author}</span>
+      </div>
+          <button type="button" onclick="addMethod.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
       </div>`;
     });
   }
@@ -35,7 +38,7 @@ class Books {
   addBook() {
     // let booksArr = [];
     let book = new Books(inputTitle.value, inputAuthor.value);
-    if (inputTitle.value !== '' || inputAuthor.value !== '') {
+    if (inputTitle.value !== '' && inputAuthor.value !== '') {
       booksList.push(book);
       localStorage.setItem('coward', JSON.stringify(booksList));
     }

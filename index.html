@@ -5,27 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
     <!-- header section-->
-    <nav class="nav-bar">
-    <h1>Awesome Books</h1>
-    </nav>
+    <header class="navigation">
+        <h2 class="logo">Awesome Books</h2>
 
+        <nav class="nav-bar" id="nav-bar">
+            <ul class="list-none nav-links">
+                <li>List</li>
+                <li>Add New</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Display section -->
-    <section class="books-list" id="books-list">
+    <section class="books-section" id="books-section">
+        <h1 class="books-list-title">All awesome books</h1>
+        <div class="books-list" id="books-list">
 
+        </div>
     </section>
 
+
     <!-- form section -->
-    <form action="" id="form">
-        <input type="text" placeholder="Title" id="title"><br><br>
-        <input type="text" placeholder="Author" id="author"><br><br>
-        <button type="button" class="add-btn" id="add-btn">Add</button>
-    </form>
+    <section class="form-section">
+        <form action="" id="form">
+            <h2 class="form-title">Add a new book</h2>
+            <input type="text" placeholder="Title" class="title" id="title">
+            <input type="text" placeholder="Author" class="author" id="author">
+            <button type="button" class="add-btn" id="add-btn">Add</button>
+        </form>
+    </section>
     <script src="script.js"></script>
 </body>
 
