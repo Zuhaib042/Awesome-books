@@ -20,7 +20,7 @@ class Books {
           <span>by</span>
           <span class="book-author">${book.author}</span>
       </div>
-          <button type="button" onclick="addMethod.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
+          <button type="button" onclick="Books.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
       </div>`;
     });
   }
@@ -38,21 +38,19 @@ class Books {
   }
   // removebook
 
-  removeBook(index) {
+  static removeBook(index) {
     booksList.splice(index, 1);
     booksSection.innerHTML = '';
     localStorage.setItem('coward', JSON.stringify(booksList));
-    this.displayBooks();
+    Books.displayBooks();
   }
 }
 
-const addMethod = new Books();
-
-window.onload = addMethod.displayBooks();
+window.onload = Books.displayBooks();
 addBtn.addEventListener('click', () => {
   booksSection.innerHTML = '';
-  addMethod.addBook();
-  addMethod.displayBooks();
+  Books.addBook();
+  Books.displayBooks();
   inputTitle.value = '';
   inputAuthor.value = '';
 });
