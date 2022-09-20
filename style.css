@@ -59,7 +59,7 @@ body {
 }
 
 .one-book {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -78,7 +78,7 @@ body {
   background-color: #fff;
   border-right: 4px solid #000;
   border-bottom: 4px solid #000;
-  padding: 4px 8px;
+  padding: 2px 8px;
   max-height: 30px;
 }
 
