@@ -1,12 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.error-mesg {
-  color: white;
-  border-radius: 3px;
-  background-color: red;
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* header section */
+
+.navigation {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  margin: 10px 15px;
+}
+
+.list-none {
+  list-style: none;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+/* Books-list Section */
+
+.books-section {
+  margin-top: 3rem;
+}
+
+.books-list-title {
   text-align: center;
+  font-size: 2rem;
+}
+
+.books-list {
+  border: 2px solid black;
+  margin: 10px 15px;
+  padding: 10px;
+}
+
+.book-detail {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.one-book {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.book-detail:nth-child(odd) {
+  background-color: #ddd;
+}
+
+.book-detail:nth-child(even) {
+  background-color: #fff;
+}
+
+.remove-btn {
+  cursor: pointer;
+  border: 2px solid #000;
+  font-weight: 800;
+  background-color: #fff;
+  border-right: 4px solid #000;
+  border-bottom: 4px solid #000;
+  padding: 2px 8px;
+  max-height: 30px;
+}
+
+/* form-section */
+
+.form-section {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form {
+  display: flex;
+  max-width: 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#title,
+#author {
+  min-width: 260px;
+  padding: 6px 12px;
+  border: 2px solid black;
+  margin-top: 15px;
+}
+
+.title::placeholder,
+.author::placeholder {
+  font-weight: 700;
+  color: black;
+}
+
+.add-btn {
+  align-self: flex-end;
+  margin-top: 10px;
+  cursor: pointer;
+  border: 2px solid #000;
+  font-weight: 800;
+  background-color: #fff;
+  border-right: 4px solid #000;
+  border-bottom: 4px solid #000;
+  padding: 4px 8px;
+}
+
+.error-mesg.active {
+  display: block;
+}
+
+.error-mesg {
+  display: none;
+  color: red;
+}
+
+@media (max-width: 500px) {
+  .book-detail {
+    flex-direction: column;
+  }
+
+  .remove-btn {
+    align-self: flex-end;
+  }
 }
