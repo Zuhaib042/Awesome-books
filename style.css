@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
-.error-mesg {
-  color: white;
-  border-radius: 3px;
-  background-color: red;
-  text-align: center;
+.nav-bar {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: red solid 3px;
 }
