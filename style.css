@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.error-mesg {
+  color: white;
+  border-radius: 3px;
+  background-color: red;
+  text-align: center;
+}
