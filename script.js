@@ -2,9 +2,8 @@ const booksSection = document.getElementById('books-list');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
+const errorMesg = document.querySelector('.error-mesg');
 const booksList = JSON.parse(localStorage.getItem('coward')) || [];
-console.log(booksList);
-// let booksArr = [];
 
 class Books {
   constructor(title, author) {
@@ -13,15 +12,7 @@ class Books {
   }
 
   // displaybooks
-  displayBooks() {
-    // let booksArr = [];
-
-    // if (localStorage.getItem('coward') === null) {
-    //   booksArr = [];
-    // } else {
-    //   booksArr = JSON.parse(localStorage.getItem('coward'));
-    // }
-
+  static displayBooks() {
     booksList.forEach((book, i) => {
       booksSection.innerHTML += `<div class="book-detail" id="book-detail">
       <div class="one-book">
@@ -35,15 +26,18 @@ class Books {
   }
 
   // addbook
-  addBook() {
-    // let booksArr = [];
-    let book = new Books(inputTitle.value, inputAuthor.value);
+  static addBook() {
+    const book = new Books(inputTitle.value, inputAuthor.value);
     if (inputTitle.value !== '' && inputAuthor.value !== '') {
       booksList.push(book);
       localStorage.setItem('coward', JSON.stringify(booksList));
+      errorMesg.classList.remove('active');
+    } else {
+      errorMesg.classList.add('active');
     }
   }
   // removebook
+
   removeBook(index) {
     booksList.splice(index, 1);
     booksSection.innerHTML = '';
@@ -52,38 +46,7 @@ class Books {
   }
 }
 
-// function displayBooks() {
-//   if (localStorage.getItem('coward') === null) {
-//     booksArr = [];
-//   } else {
-//     booksArr = JSON.parse(localStorage.getItem('coward'));
-//   }
-
-//   booksArr.forEach((book, i) => {
-//     booksSection.innerHTML += `<div class="book-detail" id="book-detail">
-//         <p class="book-title">${book.title}</p>
-//         <p class="book-author">${book.author}</p>
-//         <button type="button" onclick="removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button><hr>
-//     </div>`;
-//   });
-// }
-// window.onload = displayBooks();
-
-// function addBook() {
-//   if (inputTitle.value !== '' || inputAuthor.value !== '') {
-//     booksArr.push({ title: inputTitle.value, author: inputAuthor.value });
-//     localStorage.setItem('coward', JSON.stringify(booksArr));
-//   }
-// }
-// /* eslint-disable no-unused-vars */
-// function removeBook(index) {
-//   booksArr.splice(index, 1);
-//   booksSection.innerHTML = '';
-//   localStorage.setItem('coward', JSON.stringify(booksArr));
-//   displayBooks();
-// }
-
-let addMethod = new Books();
+const addMethod = new Books();
 
 window.onload = addMethod.displayBooks();
 addBtn.addEventListener('click', () => {

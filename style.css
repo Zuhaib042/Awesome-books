@@ -14,7 +14,6 @@ body {
 
 .navigation {
   border: 2px solid black;
-  /* width: 100%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +64,7 @@ body {
 }
 
 .book-detail:nth-child(odd) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 .book-detail:nth-child(even) {
@@ -83,14 +82,10 @@ body {
   max-height: 30px;
 }
 
-/* .book-title,.book-author */
-
 /* form-section */
 
 .form-section {
   margin-top: 3rem;
-
-  /* max-width: 300px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,10 +130,20 @@ body {
   padding: 4px 8px;
 }
 
+.error-mesg.active {
+  display: block;
+}
+
+.error-mesg {
+  display: none;
+  color: red;
+}
+
 @media (max-width: 500px) {
   .book-detail {
     flex-direction: column;
   }
+
   .remove-btn {
     align-self: flex-end;
   }
