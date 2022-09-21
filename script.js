@@ -1,13 +1,16 @@
 const booksSection = document.getElementById('books-list');
-const sectionOfBooks = document.getElementById('books-section');
-const sectionContact = document.getElementById('contact-section');
-const sectionForm = document.getElementById('form-section');
+const sectionOfBooks = document.querySelector('#books-section');
+const sectionContact = document.querySelector('#section-contact');
+const sectionForm = document.querySelector('#form-section');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const errorMesg = document.querySelector('.error-mesg');
 const links = document.querySelectorAll('.nav-links');
 const booksList = JSON.parse(localStorage.getItem('coward')) || [];
+console.log(sectionOfBooks);
+console.log(sectionContact);
+console.log(sectionForm);
 
 class Books {
   constructor(title, author) {
@@ -64,13 +67,18 @@ addBtn.addEventListener('click', () => {
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
     console.log(e.target.id);
-
-  if(e.target.id ==' list'){
-    sectionContact.style.display = none
-    sectionForm.style.display = none
-    sectionOfBooks.style.display = flex
-
-  }
-   
+    if (e.target.id === 'list') {
+      sectionOfBooks.classList.add('showing');
+      sectionContact.classList.remove('showing');
+      sectionForm.classList.remove('showing');
+    } else if (e.target.id === 'add') {
+      sectionOfBooks.classList.remove('showing');
+      sectionContact.classList.remove('showing');
+      sectionForm.classList.add('showing');
+    } else if (e.target.id === 'contact') {
+      sectionOfBooks.classList.remove('showing');
+      sectionContact.classList.add('showing');
+      sectionForm.classList.remove('showing');
+    }
   });
 });
