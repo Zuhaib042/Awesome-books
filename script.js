@@ -1,4 +1,7 @@
 const booksSection = document.getElementById('books-list');
+const sectionOfBooks = document.getElementById('books-section');
+const sectionContact = document.getElementById('contact-section');
+const sectionForm = document.getElementById('form-section');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
@@ -60,6 +63,14 @@ addBtn.addEventListener('click', () => {
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    console.log(e.target);
+    console.log(e.target.id);
+
+  if(e.target.id ==' list'){
+    sectionContact.style.display = none
+    sectionForm.style.display = none
+    sectionOfBooks.style.display = flex
+
+  }
+   
   });
 });
