@@ -16,31 +16,62 @@
 
         <nav class="nav-bar" id="nav-bar">
             <ul class="list-none nav-links">
-                <li>List</li>
-                <li>Add New</li>
-                <li>Contact</li>
+                <li id="list">List</li>
+                <li id="add">Add New</li>
+                <li id="contact">Contact</li>
             </ul>
         </nav>
     </header>
 
-    <!-- Display section -->
-    <section class="books-section" id="books-section">
-        <h1 class="books-list-title">All awesome books</h1>
-        <div class="books-list" id="books-list">
-        </div>
-    </section>
+    <main>
+
+        <p id="date">today</p>
+        <!-- Display section -->
+        <section class="books-section showing" id="books-section">
+            <h1 class="books-list-title">All awesome books</h1>
+            <div class="books-list" id="books-list">
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section class="section-contact" id="section-contact">
+            <div class="contact-content">
+                <h2 class="contact-title">Contact Information</h2>
+                <div class="contact-para">
+                    <p>
+                        Do you have any questions or you just want to say "hello"? <br> You can reach out to us!
+                    </p>
+                </div>
+                <ul class="contact-ul">
+                    <li>Our Email mail@mail.com</li>
+                    <li>Our phone number: +44-352-65784350</li>
+                    <li>Our address: 712 Gotham street, 56700 Gotham City, Uganda</li>
+                </ul>
+            </div>
+
+        </section>
 
 
-    <!-- form section -->
-    <section class="form-section">
-        <form action="" id="form">
-            <h2 class="form-title">Add a new book</h2>
-            <input type="text" placeholder="Title" class="title" id="title">
-            <input type="text" placeholder="Author" class="author" id="author">
-            <small class="error-mesg">The input fields must not be empty</small>
-            <button type="button" class="add-btn" id="add-btn">Add</button>
-        </form>
-    </section>
+        <!-- form section -->
+        <section class="form-section" id="form-section">
+            <div class="form-content">
+                <form action="" id="form">
+                    <h2 class="form-title">Add a new book</h2>
+                    <input type="text" placeholder="Title" class="title" id="title">
+                    <input type="text" placeholder="Author" class="author" id="author">
+                    <small class="error-mesg">The input fields must not be empty</small>
+                    <button type="button" class="add-btn" id="add-btn">Add</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="sub-footer">
+                <h3 class="footer-title">All Copyrights are reserved</h3>
+            </div>
+        </footer>
+    </main>
     <script src="script.js"></script>
 </body>
 

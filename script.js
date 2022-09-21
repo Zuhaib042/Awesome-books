@@ -1,8 +1,13 @@
 const booksSection = document.getElementById('books-list');
+const timeDate = document.getElementById('date');
+const sectionOfBooks = document.querySelector('#books-section');
+const sectionContact = document.querySelector('#section-contact');
+const sectionForm = document.querySelector('#form-section');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const errorMesg = document.querySelector('.error-mesg');
+const links = document.querySelectorAll('.nav-links');
 const booksList = JSON.parse(localStorage.getItem('coward')) || [];
 
 class Books {
@@ -23,6 +28,7 @@ class Books {
           <button type="button" onclick="Books.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
       </div>`;
     });
+    Books.timeDisplay();
   }
 
   // addbook
@@ -36,21 +42,50 @@ class Books {
       errorMesg.classList.add('active');
     }
   }
-  // removebook
 
+  // removebook
   static removeBook(index) {
     booksList.splice(index, 1);
     booksSection.innerHTML = '';
     localStorage.setItem('coward', JSON.stringify(booksList));
     Books.displayBooks();
   }
+
+  // Display Date and Time
+  static timeDisplay() {
+    const date = new Date();
+    const n = date.toDateString();
+    const time = date.toLocaleTimeString();
+    timeDate.innerText = `${n} , ${time}`;
+  }
 }
 
 window.onload = Books.displayBooks();
+setInterval(Books.timeDisplay, 1000);
 addBtn.addEventListener('click', () => {
   booksSection.innerHTML = '';
   Books.addBook();
   Books.displayBooks();
   inputTitle.value = '';
   inputAuthor.value = '';
+});
+
+// navigation
+
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    if (e.target.id === 'list') {
+      sectionOfBooks.classList.add('showing');
+      sectionContact.classList.remove('showing');
+      sectionForm.classList.remove('showing');
+    } else if (e.target.id === 'add') {
+      sectionOfBooks.classList.remove('showing');
+      sectionContact.classList.remove('showing');
+      sectionForm.classList.add('showing');
+    } else if (e.target.id === 'contact') {
+      sectionOfBooks.classList.remove('showing');
+      sectionContact.classList.add('showing');
+      sectionForm.classList.remove('showing');
+    }
+  });
 });

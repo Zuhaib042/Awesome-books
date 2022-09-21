@@ -33,12 +33,30 @@ body {
   font-size: 16px;
   font-weight: 600;
   padding: 0 6px;
+  cursor: pointer;
+}
+
+.nav-links li:first-child {
+  border-right: 2px solid black;
+}
+
+.nav-links li:last-child {
+  border-left: 2px solid black;
+}
+
+/* date */
+
+#date {
+  text-align: end;
+  margin-right: 15px;
+  font-weight: 600;
 }
 
 /* Books-list Section */
 
 .books-section {
   margin-top: 3rem;
+  display: none;
 }
 
 .books-list-title {
@@ -82,10 +100,46 @@ body {
   max-height: 30px;
 }
 
+/* contact section */
+
+.section-contact {
+  margin-top: 3rem;
+  display: none;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 0 15px;
+}
+
+.contact-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.contact-para {
+  text-align: center;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.contact-ul {
+  font-weight: 600;
+  font-size: 16px;
+}
+
 /* form-section */
 
 .form-section {
   margin-top: 3rem;
+  display: none;
+}
+
+.form-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,6 +191,32 @@ body {
 .error-mesg {
   display: none;
   color: red;
+}
+
+/* footer */
+
+.footer {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  bottom: 0;
+  padding: 5px 0;
+}
+
+.sub-footer {
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 2px solid black;
+  margin: 0 15px;
+}
+
+.footer-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.showing {
+  display: block;
 }
 
 @media (max-width: 500px) {
