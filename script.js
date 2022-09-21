@@ -9,9 +9,6 @@ const addBtn = document.getElementById('add-btn');
 const errorMesg = document.querySelector('.error-mesg');
 const links = document.querySelectorAll('.nav-links');
 const booksList = JSON.parse(localStorage.getItem('coward')) || [];
-console.log(sectionOfBooks);
-console.log(sectionContact);
-console.log(sectionForm);
 
 class Books {
   constructor(title, author) {
@@ -21,7 +18,6 @@ class Books {
 
   // displaybooks
   static displayBooks() {
-    Books.timeDisplay()
     booksList.forEach((book, i) => {
       booksSection.innerHTML += `<div class="book-detail" id="book-detail">
       <div class="one-book">
@@ -32,7 +28,9 @@ class Books {
           <button type="button" onclick="Books.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
       </div>`;
     });
-}
+    Books.timeDisplay();
+  }
+
   // addbook
   static addBook() {
     const book = new Books(inputTitle.value, inputAuthor.value);
@@ -44,8 +42,8 @@ class Books {
       errorMesg.classList.add('active');
     }
   }
-  // removebook
 
+  // removebook
   static removeBook(index) {
     booksList.splice(index, 1);
     booksSection.innerHTML = '';
@@ -53,21 +51,22 @@ class Books {
     Books.displayBooks();
   }
 
-  //Display Date and Time
-  static timeDisplay () {
-     let date = new Date();
-     let n = date.toDateString();
-     let time = date.toLocaleTimeString();
-         timeDate.innerText =  n + '  ' + time ;
+  // Display Date and Time
+  static timeDisplay() {
+    const date = new Date();
+    const n = date.toDateString();
+    const time = date.toLocaleTimeString();
+    timeDate.innerText = `${n} , ${time}`;
   }
 }
 
 window.onload = Books.displayBooks();
-setInterval(Books.timeDisplay,1000);
+setInterval(Books.timeDisplay, 1000);
 addBtn.addEventListener('click', () => {
   booksSection.innerHTML = '';
   Books.addBook();
-    inputTitle.value = '';
+  Books.displayBooks();
+  inputTitle.value = '';
   inputAuthor.value = '';
 });
 
@@ -75,7 +74,6 @@ addBtn.addEventListener('click', () => {
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    console.log(e.target.id);
     if (e.target.id === 'list') {
       sectionOfBooks.classList.add('showing');
       sectionContact.classList.remove('showing');

@@ -36,6 +36,22 @@ body {
   cursor: pointer;
 }
 
+.nav-links li:first-child {
+  border-right: 2px solid black;
+}
+
+.nav-links li:last-child {
+  border-left: 2px solid black;
+}
+
+/* date */
+
+#date {
+  text-align: end;
+  margin-right: 15px;
+  font-weight: 600;
+}
+
 /* Books-list Section */
 
 .books-section {
@@ -191,7 +207,12 @@ body {
   background-color: #fff;
   padding: 10px 15px;
   border: 2px solid black;
-  margin: 0px 15px;
+  margin: 0 15px;
+}
+
+.footer-title {
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .showing {
