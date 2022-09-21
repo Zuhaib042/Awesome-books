@@ -1,4 +1,5 @@
 const booksSection = document.getElementById('books-list');
+const timeDate = document.getElementById('date');
 const sectionOfBooks = document.querySelector('#books-section');
 const sectionContact = document.querySelector('#section-contact');
 const sectionForm = document.querySelector('#form-section');
@@ -20,6 +21,7 @@ class Books {
 
   // displaybooks
   static displayBooks() {
+    Books.timeDisplay()
     booksList.forEach((book, i) => {
       booksSection.innerHTML += `<div class="book-detail" id="book-detail">
       <div class="one-book">
@@ -30,8 +32,7 @@ class Books {
           <button type="button" onclick="Books.removeBook(${i})" class="remove-btn" id="remove-btn">Remove</button>
       </div>`;
     });
-  }
-
+}
   // addbook
   static addBook() {
     const book = new Books(inputTitle.value, inputAuthor.value);
@@ -51,14 +52,22 @@ class Books {
     localStorage.setItem('coward', JSON.stringify(booksList));
     Books.displayBooks();
   }
+
+  //Display Date and Time
+  static timeDisplay () {
+     let date = new Date();
+     let n = date.toDateString();
+     let time = date.toLocaleTimeString();
+         timeDate.innerText =  n + '  ' + time ;
+  }
 }
 
 window.onload = Books.displayBooks();
+setInterval(Books.timeDisplay,1000);
 addBtn.addEventListener('click', () => {
   booksSection.innerHTML = '';
   Books.addBook();
-  Books.displayBooks();
-  inputTitle.value = '';
+    inputTitle.value = '';
   inputAuthor.value = '';
 });
 
