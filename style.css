@@ -33,12 +33,14 @@ body {
   font-size: 16px;
   font-weight: 600;
   padding: 0 6px;
+  cursor: pointer;
 }
 
 /* Books-list Section */
 
 .books-section {
   margin-top: 3rem;
+  display: none;
 }
 
 .books-list-title {
@@ -80,6 +82,35 @@ body {
   border-bottom: 4px solid #000;
   padding: 2px 8px;
   max-height: 30px;
+}
+
+/* contact section */
+
+.section-contact {
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 3rem;
+  margin: 0 15px;
+}
+
+.contact-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.contact-para {
+  text-align: center;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.contact-ul {
+  font-weight: 600;
+  font-size: 16px;
 }
 
 /* form-section */
@@ -137,6 +168,23 @@ body {
 .error-mesg {
   display: none;
   color: red;
+}
+
+/* footer */
+
+.footer {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  bottom: 0;
+  padding: 5px 0;
+}
+
+.sub-footer {
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 2px solid black;
+  margin: 0px 15px;
 }
 
 @media (max-width: 500px) {

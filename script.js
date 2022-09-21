@@ -3,6 +3,7 @@ const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const errorMesg = document.querySelector('.error-mesg');
+const links = document.querySelectorAll('.nav-links');
 const booksList = JSON.parse(localStorage.getItem('coward')) || [];
 
 class Books {
@@ -53,4 +54,12 @@ addBtn.addEventListener('click', () => {
   Books.displayBooks();
   inputTitle.value = '';
   inputAuthor.value = '';
+});
+
+// navigation
+
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    console.log(e.target);
+  });
 });
